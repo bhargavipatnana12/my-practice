@@ -1,17 +1,25 @@
-import React, { Component } from "react";
+import React, { useEffect, useRef } from "react";
 
-export default class App extends Component {
-  state = { name: "skillhub" };
-  render() {
-    return (
-      <div>
-        <center>
-          <h1>{this.state.name}</h1>
-          <button onClick={() => this.setState({ name: "telugu skillhub" })}>
-            Change
-          </button>
-        </center>
-      </div>
-    );
-  }
-}
+const App = () => {
+  const data = useRef(null);
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log(data.current.value);
+  };
+  useEffect(() => {
+    data.current.focus();
+  }, []);
+  return (
+    <div>
+      <center>
+        <form onSubmit={submitHandler}>
+          <input ref={data} type="text" placeholder="Enter the name" />
+          <br />
+          <input type="submit" />
+        </form>
+      </center>
+    </div>
+  );
+};
+
+export default App;
