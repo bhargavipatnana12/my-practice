@@ -5,8 +5,8 @@ import { store } from "./App";
 const ComponentA = () => {
   const [data, setData] = useContext(store);
   return (
-    <div>
-      <h1>Im from component A {data}</h1>
+    <div className="card" style={{ width: "300px" }}>
+      <div className="card-body"> Im from component A {data}</div>
     </div>
   );
 };
