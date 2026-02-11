@@ -1,15 +1,26 @@
-import React from "react";
-import { createContext, useState } from "react";
-import ComponentA from "./ComponentA";
-import ComponentB from "./ComponentB";
+import React, { useState } from "react";
+import { createContext } from "react";
+import Count from "./Count";
+import Display from "./Display";
 export const store = createContext();
 const App = () => {
-  const [data, setData] = useState(0);
+  const [data, setData] = useState([
+    {
+      brandName: "NOKIA",
+    },
+    {
+      brandName: "MOTO",
+    },
+    {
+      brandName: "SAMSUNG",
+    },
+  ]);
   return (
     <store.Provider value={[data, setData]}>
-      <ComponentA />
-      <ComponentB />
-      <button onClick={() => setData(data + 1)}>Increment</button>
+      <center>
+        <Count />
+        <Display />
+      </center>
     </store.Provider>
   );
 };
