@@ -7,7 +7,7 @@ const Count = () => {
   return (
     <div className="card">
       <div className="card-body">
-        <h3>{data.length}</h3>
+        <h3>Count :{data.length}</h3>
       </div>
     </div>
   );
