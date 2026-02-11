@@ -9,6 +9,7 @@ const App = () => {
     <store.Provider value={[data, setData]}>
       <ComponentA />
       <ComponentB />
+      <button onClick={() => setData(data + 1)}>Increment</button>
     </store.Provider>
   );
 };
