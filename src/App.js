@@ -1,28 +1,16 @@
-import React, { useState } from "react";
-import { createContext } from "react";
-import Count from "./Count";
-import Display from "./Display";
-export const store = createContext();
-const App = () => {
-  const [data, setData] = useState([
-    {
-      brandName: "NOKIA",
-    },
-    {
-      brandName: "MOTO",
-    },
-    {
-      brandName: "SAMSUNG",
-    },
-  ]);
+import React from "react";
+import { connect } from "react-redux";
+import { DecAction, IncAction } from "./action";
+
+const App = (local_variable) => {
   return (
-    <store.Provider value={[data, setData]}>
-      <center>
-        <Count />
-        <Display />
-      </center>
-    </store.Provider>
+    <div>
+      <h1>{local_variable}</h1>
+      <button onClick={() => IncAction(5)}>INCREMENT</button>
+      <button onClick={DecAction}>DECREMENT</button>
+    </div>
   );
 };
+const mapStateToProps = (state) => ({ local_variable: state });
 
-export default App;
+export default connect(mapStateToProps, { IncAction, DecAction })(App);
